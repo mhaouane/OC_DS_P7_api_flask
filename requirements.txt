@@ -1,7 +1,5 @@
 gunicorn
-python
 requests
-scipy
 flask
 shap
 pandas
@@ -11,4 +9,3 @@ seaborn
 numpy
 pillow
 joblib
-scikit_learn
