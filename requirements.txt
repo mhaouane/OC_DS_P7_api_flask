@@ -9,3 +9,4 @@ seaborn
 numpy
 pillow
 joblib
+scikit-learn

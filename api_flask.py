@@ -74,7 +74,7 @@ feat_desc = pd.read_csv(path, index_col=0)
 # Create the application instance
 # app = connexion.App(__name__, specification_dir='./')
 # MH le 30/06 render
-app=Flask(__name__)
+app = Flask(__name__)
 
 # Test : http://127.0.0.1:5000/
 # Test Heroku : https://oc-api-flask-mh.herokuapp.com/
@@ -83,6 +83,7 @@ app=Flask(__name__)
 @app.route('/')
 #def index():
 #    return render_template('index.html')
+
 def home():
     """
     This function just responds to the browser ULR
