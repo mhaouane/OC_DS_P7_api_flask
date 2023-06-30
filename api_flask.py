@@ -10,24 +10,28 @@ import os
 import sys
 import joblib
 import pandas as pd
+import numpy as np
 import sklearn
 import flask
 import json
-from flask import render_template, request, jsonify, app
+from flask import Flask, render_template, request, jsonify, app, url_for
 import connexion
 from markupsafe import escape
 import shap
 from sklearn.feature_selection import SelectFromModel
 from sklearn.neighbors import NearestNeighbors
+from sklearn.ensemble import RandomForestClassifier
 
 ##############################################################################
 ## Loading model
 ##############################################################################
 
 # Best model and best threshold	0
+"""
 with open(os.path.join('models', 'model_randforest.pkl'), 'rb') as file:	
     best_model = joblib.load(file)	
 threshold = 0.51
+"""
 #---------------------------
 
 
@@ -41,6 +45,7 @@ threshold = 0.51
 ## Loading data
 ##############################################################################
 #  Processed data
+"""
 path = os.path.join('data', 'X_train.csv') # concatenation between path and filename
 X_train = pd.read_csv(path, index_col='SK_ID_CURR')
 path = os.path.join('data', 'y_train.csv')
@@ -51,7 +56,7 @@ X_test = pd.read_csv(path, index_col='SK_ID_CURR')
 # Description of each feature
 path = os.path.join('data', 'feat_desc.csv')
 feat_desc = pd.read_csv(path, index_col=0)
-
+"""
 
 # split the steps of the best pipeline
 #Use the attribute named_steps or steps to inspect estimators within the pipeline. Caching the transformers is advantageous when fitting is time consuming.
@@ -67,13 +72,17 @@ feat_desc = pd.read_csv(path, index_col=0)
 
 #######################################################
 # Create the application instance
-app = connexion.App(__name__, specification_dir='./')
+# app = connexion.App(__name__, specification_dir='./')
+# MH le 30/06 render
+app=Flask(__name__)
 
 # Test : http://127.0.0.1:5000/
 # Test Heroku : https://oc-api-flask-mh.herokuapp.com/
 # Test render: https://oc-api-flask-mh.onrender.com
 # Create a URL route in our application for "/"
 @app.route('/')
+#def index():
+#    return render_template('index.html')
 def home():
     """
     This function just responds to the browser ULR
