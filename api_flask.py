@@ -2,7 +2,6 @@
 -*- coding: utf-8 -*-
 To run from the directory 'WEB':
 python api/server.py
-
 Author : Mohamed HAOUANE
 '''
 
@@ -14,7 +13,7 @@ import pandas as pd
 import sklearn
 import flask
 import json
-from flask import render_template, request, jsonify
+from flask import render_template, request, jsonify, app
 import connexion
 from markupsafe import escape
 import shap
