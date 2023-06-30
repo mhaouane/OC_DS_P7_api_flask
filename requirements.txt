@@ -1,8 +1,6 @@
 gunicorn
-flask
 requests
-connexion
-json
+flask
 shap
 pandas
 plotly
@@ -11,4 +9,3 @@ seaborn
 numpy
 pillow
 joblib
-scikit_learn
