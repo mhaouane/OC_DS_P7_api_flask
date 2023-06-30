@@ -1,2 +1,16 @@
 gunicorn
 flask
+requests
+connexion
+json
+scipy
+flask
+shap
+pandas
+plotly
+matplotlib
+seaborn
+numpy
+pillow
+joblib
+scikit_learn
