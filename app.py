@@ -45,7 +45,7 @@ threshold = 0.51
 ## Loading data
 ##############################################################################
 #  Processed data
-"""
+
 path = os.path.join('data', 'X_train.csv') # concatenation between path and filename
 X_train = pd.read_csv(path, index_col='SK_ID_CURR')
 path = os.path.join('data', 'y_train.csv')
@@ -56,7 +56,7 @@ X_test = pd.read_csv(path, index_col='SK_ID_CURR')
 # Description of each feature
 path = os.path.join('data', 'feat_desc.csv')
 feat_desc = pd.read_csv(path, index_col=0)
-"""
+
 
 # split the steps of the best pipeline
 #Use the attribute named_steps or steps to inspect estimators within the pipeline. Caching the transformers is advantageous when fitting is time consuming.
@@ -78,7 +78,7 @@ app = Flask(__name__)
 
 # Test : http://127.0.0.1:5000/
 # Test Heroku : https://oc-api-flask-mh.herokuapp.com/
-# Test render: https://oc-api-flask-mh.onrender.com
+# Test render : https://oc-api-flask-mh.onrender.com
 # Create a URL route in our application for "/"
 @app.route('/')
 #def index():
@@ -92,6 +92,21 @@ def home():
     """
     return 'Hello Word!! I am Mohamed'
 # If we're running in stand alone mode, run the application
+
+# Route liste Id
+# First 10 lines
+# Test local : http://127.0.0.1:5000/api/list_id/
+# Test Heroku : https://oc-api-flask-mh.herokuapp.com/api/list_id/
+# Test render : https://oc-api-flask-mh.onrender.com/api/list_id/
+@app.route('/api/list_id/')	
+def list_id():	
+    # Extract list 'SK_ID_CURR' ids in the X_test dataframe	
+    list_id = pd.Series(list(X_test.index.sort_values()))
+    # Convert pd.Series to JSON	and get oly 10 firts sk_ids
+    list_ids_json = json.loads(list_id[:10].to_json())# First 10 lines
+    # Returning the processed data	
+    return jsonify({'status': 'ok',	
+    		        'data': list_ids_json})
 
 if __name__ == '__main__':
     app.run(debug=True)
