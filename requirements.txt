@@ -1,12 +1,2 @@
 gunicorn
-requests
 flask
-shap
-pandas
-plotly
-matplotlib
-seaborn
-numpy
-pillow
-joblib
-scikit-learn
