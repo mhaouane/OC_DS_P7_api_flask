@@ -27,11 +27,11 @@ from sklearn.ensemble import RandomForestClassifier
 ##############################################################################
 
 # Best model and best threshold	0
-"""
+
 with open(os.path.join('models', 'model_randforest.pkl'), 'rb') as file:	
     best_model = joblib.load(file)	
 threshold = 0.51
-"""
+
 #---------------------------
 
 
@@ -93,5 +93,5 @@ def home():
     return 'Hello Word!! I am Mohamed'
 # If we're running in stand alone mode, run the application
 
-#if __name__ == '__main__':
-#    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
