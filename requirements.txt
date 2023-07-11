@@ -1,6 +1,7 @@
 gunicorn
 requests
-flask
+scikit-learn==1.0.2
+flask==2.2.3
 shap
 pandas
 plotly
