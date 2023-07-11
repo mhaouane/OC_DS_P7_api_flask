@@ -25,10 +25,14 @@ file_path_model = "C:/Users/ADSL/Documents/Projet7/backend/models/model_randfore
 """
 
 ## with open(os.path.join('C:\\Users\\ADSL\\Documents\\Projet7\\models', 'model_randforest.pkl'), 'rb') as file:
+
+"""
 with open(os.path.join('models', 'model_randforest.pkl'), 'rb') as file:
     file_path_model = joblib.load(file)	
 threshold = 0.51
+"""
 
+file_path_model = os.path.join('models', 'model_randforest.pkl')
 file_path_xtrain = os.path.join('data', 'X_train.csv') # concatenation between path and filename
 
 file_path_ytrain = os.path.join('data', 'y_train.csv')
