@@ -28,16 +28,15 @@ with open(os.path.join('models', 'model_randforest.pkl'), 'rb') as file:
     file_path_model = joblib.load(file)	
 threshold = 0.51
 
-path = os.path.join('data', 'X_train.csv') # concatenation between path and filename
-X_train = pd.read_csv(path, index_col='SK_ID_CURR')
-path = os.path.join('data', 'y_train.csv')
-y_train = pd.read_csv(path, index_col='SK_ID_CURR')
-path = os.path.join('data', 'X_test.csv')	
-X_test = pd.read_csv(path, index_col='SK_ID_CURR')
+file_path_xtrain = os.path.join('data', 'X_train.csv') # concatenation between path and filename
+
+file_path_ytrain = os.path.join('data', 'y_train.csv')
+
+file_path_xtest = os.path.join('data', 'X_test.csv')	
 
 # Description of each feature
-path = os.path.join('data', 'feat_desc.csv')
-feat_desc = pd.read_csv(path, index_col=0)
+#path = os.path.join('data', 'feat_desc.csv')
+#feat_desc = pd.read_csv(path, index_col=0)
 
 #TestCase : un scénario de test est créé comme une classe fille
 # les tests individuels sont défnis par des méthodes dont les noms commencent par test_: 
