@@ -13,6 +13,7 @@ import joblib
 from joblib import load, dump
 import flask
 import json
+from json import JSONEncoder
 from flask import Flask, render_template, request, jsonify, app, url_for
 
 import warnings
