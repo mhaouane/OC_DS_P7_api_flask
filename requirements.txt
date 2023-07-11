@@ -1,6 +1,7 @@
 gunicorn
 requests
-scikit-learn==1.2.2
+python==
+scikit-learn==1.0.2
 flask==2.2.3
 shap
 pandas
